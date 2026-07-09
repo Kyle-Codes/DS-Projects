@@ -77,6 +77,10 @@ def read_tab_as_df(
         tab_name=tab_name,
         range_name=range_name)
     
+    if not sheet_values:
+        logger.warning('No data found in selected tab - returning empty dataframe')
+        return pd.DataFrame()
+
     df = pd.DataFrame(data=sheet_values[1:], columns=sheet_values[0])
 
     return df

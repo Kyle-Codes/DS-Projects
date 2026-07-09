@@ -13,6 +13,8 @@ logger.setLevel('INFO')
 class GSheetHelper:
     def __init__(self, url=None, spreadsheet_id=None):
         if spreadsheet_id is None:
+            if url is None:
+                raise ValueError("Either url or spreadsheet_id must be provided.")
             spreadsheet_id = gsheets.extract_spreadsheet_id(url)
         self.spreadsheet_id = spreadsheet_id
         self.scopes = credentials.SCOPES
@@ -144,7 +146,7 @@ class GSheetHelper:
         )
         '''
         creds = credentials.load_credentials(
-            token_path=Path(gsheets.TOKEN_PATH),
+            token_path=Path(credentials.TOKEN_PATH),
             scopes=credentials.SCOPES,
         )
         sheets_service = build("sheets", "v4", credentials=creds)
