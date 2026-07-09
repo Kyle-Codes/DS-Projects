@@ -1,0 +1,12 @@
+.ipynb_checkpoints/
+Playground.ipynb
+
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.env
+.venv/
+
+secrets/*
+!secrets/.gitkeep

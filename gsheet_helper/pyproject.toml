@@ -1,0 +1,21 @@
+[project]
+name = "gsheet-helper"
+version = "0.1.0"
+description = "Helper utilities for working with Google Sheets from Python."
+requires-python = ">=3.10"
+dependencies = [
+    "pandas",
+    "google-api-python-client",
+    "google-auth",
+    "google-auth-oauthlib",
+]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[project.scripts]
+gsheet-helper = "gsheet_helper.cli:main"
